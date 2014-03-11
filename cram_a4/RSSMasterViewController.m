@@ -24,7 +24,7 @@
     [super viewDidLoad];
     [self fetchEntries];
     [[self navigationItem] setTitle: @"RSS Feed"];
-
+    
 }
 
 -(void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data {
@@ -41,7 +41,7 @@
     xmlData = nil;
     connection = nil;
     [[self tableView] reloadData];
-    NSLog((@"%@\n %@\n %@\n", channel, [channel title], [channel infoString]));
+    
 }
 
 -(void) parser: (NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
@@ -111,20 +111,20 @@
 
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 
@@ -132,8 +132,8 @@
 // creates the web view controller's view the first time through
 
 {
-
-
+    
+    
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         RSSItem *entry = [[channel items] objectAtIndex:[indexPath row]];
